@@ -1194,66 +1194,114 @@ div.project-card:hover {
   box-shadow: 0 8px 16px rgba(255, 3, 3, 0.3);
 }
 
-/* Container and Button Styling */
-.download-btn {
+/*/* =========================
+   BASE BUTTON STYLING
+========================= */
+.action-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px; /* Reduced padding */
-  font-size: 14px; /* Smaller font size */
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 25px; /* Smaller roundness */
-  text-decoration: none;
+  border-radius: 25px;
+  text-decoration: none !important;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  color: #fff !important;
 }
 
-/* Pulsing Glow Animation */
-.download-btn::before {
-  content: '';
+/* =========================
+   BUTTON COLORS
+========================= */
+.download-btn {
+  background-color: #007bff;
+}
+
+.view-btn {
+  background-color: #28a745;
+}
+
+/* =========================
+   GLOW EFFECT (BEHIND)
+========================= */
+.action-btn::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%; /* Smaller glow size */
-  height: 120%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
-  opacity: 0;
+  inset: -20%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0.3); /* Reduced scale */
   animation: pulse 2s infinite;
   z-index: 0;
+  pointer-events: none;
 }
 
-@keyframes pulse {
-  0% {
-      transform: translate(-50%, -50%) scale(0.3);
-      opacity: 1;
-  }
-  100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0;
-  }
+/* =========================
+   TEXT & ICON FIX
+========================= */
+.action-btn span,
+.action-btn i {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Button Hover Animation */
+/* =========================
+   HOVER EFFECTS
+========================= */
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
 .download-btn:hover {
   background-color: #0056b3;
-  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3); /* Reduced shadow */
-  transform: scale(1.05); /* Subtle hover scale */
+  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
 }
 
-.download-btn:hover .text {
-  transform: translateX(6px); /* Reduced movement */
+.view-btn:hover {
+  background-color: #1e7e34;
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.4);
 }
 
-.download-btn:hover i {
+.action-btn:hover span {
+  transform: translateX(6px);
+}
+
+.action-btn:hover i {
   transform: translateX(-6px);
   animation: bounce 0.5s infinite alternate;
 }
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes pulse {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateX(-6px);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
+ 
+
 
 /* Text and Icon Animation */
 .text {
