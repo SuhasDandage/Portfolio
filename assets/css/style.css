@@ -1301,6 +1301,16 @@ div.project-card:hover {
   }
 }
  
+@media (max-width: 576px) {
+  .resume-btn-wrapper {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
 
 
 /* Text and Icon Animation */
