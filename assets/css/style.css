@@ -1301,9 +1301,12 @@ div.project-card:hover {
   }
 }
  
+/* Mobile stacking */
 @media (max-width: 576px) {
   .resume-btn-wrapper {
     flex-direction: column;
+    gap: 12px; /* Add vertical space between buttons */
+    align-items: center;
   }
 
   .action-btn {
@@ -1311,6 +1314,7 @@ div.project-card:hover {
     max-width: 280px;
   }
 }
+
 
 
 /* Text and Icon Animation */
